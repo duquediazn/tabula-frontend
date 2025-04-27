@@ -18,13 +18,12 @@ Este repositorio contiene la interfaz de usuario, la lógica de autenticación, 
 
 ## Tecnologías principales
 
-- React 19
-- Vite
-- Tailwind CSS
-- React Router
-- Gráficas interactivas con Recharts
-- Context API (gestión global de autenticación)
-- Fetch API (peticiones HTTP)
+- [React 19](https://react.dev/) (con [Vite](https://vitejs.dev/))
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React Router v7](https://reactrouter.com/en/main)
+- Gráficas con [Recharts](https://recharts.org/) (gráficas de stock)
+- [Context API](https://react.dev/learn/passing-data-deeply-with-context) para gestión de autenticación
+- Gestión de sesión con JWT + Cookies HttpOnly
 
 ---
 
@@ -122,13 +121,12 @@ This repository contains the user interface, authentication logic, navigation, a
 
 ## Main technologies
 
-- React 19
-- Vite
-- Tailwind CSS
-- React Router
-- Interactive charts with Recharts
-- Context API (global authentication management)
-- Fetch API (HTTP requests)
+- [React 19](https://react.dev/) (with [Vite](https://vitejs.dev/))
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React Router v7](https://reactrouter.com/en/main)
+- Charts with [Recharts](https://recharts.org/) (stock graphs)
+- [Context API](https://react.dev/learn/passing-data-deeply-with-context) for authentication management
+- Session management with JWT + HttpOnly Cookies
 
 ---
 
