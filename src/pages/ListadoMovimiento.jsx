@@ -82,16 +82,6 @@ export default function ListadoMovimientos() {
     document.title = "Listado Movimientos";
   }, []);
 
-  if (isLoading) {
-    return (
-      <>
-        <Navbar />
-        <Breadcrumb />
-        <div className="p-6 text-gray-700">Cargando sesión de usuario...</div>
-      </>
-    );
-  }
-
   return (
     <>
       <Navbar />
