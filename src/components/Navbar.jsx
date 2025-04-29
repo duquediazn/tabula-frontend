@@ -170,6 +170,7 @@ export default function Navbar() {
           {/* Ícono notificación y menú usuario */}
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <button
+              role="button"
               className="relative"
               type="button"
               onClick={() => {
@@ -203,6 +204,7 @@ export default function Navbar() {
                         >
                           <span>• {mensaje}</span>
                           <button
+                            role="button"
                             className="text-lg text-red-500 hover:text-red-700 ml-2"
                             onClick={(e) => {
                               e.stopPropagation(); // evitar que se dispare la navegación
@@ -244,6 +246,7 @@ export default function Navbar() {
                 </MenuItem>
                 <MenuItem>
                   <button
+                    role="button"
                     onClick={logout}
                     className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >

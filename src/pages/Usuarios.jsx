@@ -92,6 +92,7 @@ export default function Usuarios() {
         <div className="flex items-center justify-between gap-4 flex-wrap">
           <h1 className="text-2xl font-bold text-gray-800">Usuarios</h1>
           <button
+            role="button"
             onClick={() => navigate("/usuarios/nuevo")}
             className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded text-sm"
           >
@@ -140,6 +141,7 @@ export default function Usuarios() {
         {seleccionados.length > 0 && (
           <div className="flex gap-2">
             <button
+              role="button"
               onClick={async () => {
                 try {
                   await cambiarEstadoUsuarios(seleccionados, true, accessToken);
@@ -155,6 +157,7 @@ export default function Usuarios() {
               Activar seleccionados
             </button>
             <button
+              role="button"
               onClick={async () => {
                 try {
                   await cambiarEstadoUsuarios(

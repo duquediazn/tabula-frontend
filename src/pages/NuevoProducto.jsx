@@ -79,10 +79,14 @@ export default function NuevoProducto() {
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* SKU */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="sku"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 SKU
               </label>
               <input
+                id="sku"
                 type="text"
                 name="sku"
                 value={formulario.sku}
@@ -94,10 +98,14 @@ export default function NuevoProducto() {
 
             {/* Nombre corto */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="nuevo-corto"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Nombre corto
               </label>
               <input
+                id="nuevo-corto"
                 type="text"
                 name="nombre_corto"
                 value={formulario.nombre_corto}
@@ -109,10 +117,14 @@ export default function NuevoProducto() {
 
             {/* Descripción */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="descripcion"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Descripción
               </label>
               <textarea
+                id="descripcion"
                 name="descripcion"
                 value={formulario.descripcion}
                 onChange={handleChange}
@@ -123,10 +135,14 @@ export default function NuevoProducto() {
 
             {/* Categoría */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="id_categoria"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Categoría
               </label>
               <select
+                id="id_categoria"
                 name="id_categoria"
                 value={formulario.id_categoria}
                 onChange={handleChange}
@@ -152,12 +168,14 @@ export default function NuevoProducto() {
 
             <div className="flex gap-3">
               <button
+                role="button"
                 type="submit"
                 className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded"
               >
                 Guardar producto
               </button>
               <button
+                role="button"
                 type="button"
                 onClick={() => navigate("/productos/listado")}
                 className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded"

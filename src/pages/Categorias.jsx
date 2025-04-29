@@ -97,6 +97,7 @@ export default function Categorias() {
           Gestionar categorías
         </h1>
         <button
+          role="button"
           onClick={() => window.history.back()}
           className="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500"
         >
@@ -110,11 +111,15 @@ export default function Categorias() {
 
         {/* Crear nueva */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label
+            htmlFor={`input${nombreNueva}`}
+            className="block text-sm font-medium text-gray-700 mb-1"
+          >
             Nueva categoría
           </label>
           <div className="flex gap-2">
             <input
+              id={`input${nombreNueva}`}
               type="text"
               value={nombreNueva}
               onChange={(e) => setNombreNueva(e.target.value)}
@@ -122,6 +127,7 @@ export default function Categorias() {
               className="flex-1 bg-white border border-gray-300 rounded px-3 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500"
             />
             <button
+              role="button"
               onClick={handleCrear}
               className="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1 rounded text-sm"
             >
@@ -144,12 +150,14 @@ export default function Categorias() {
                   />
                   <div className="flex gap-2 ml-2">
                     <button
+                      role="button"
                       onClick={() => handleEditar(cat.id)}
                       className="text-green-600 hover:underline text-sm"
                     >
                       Guardar
                     </button>
                     <button
+                      role="button"
                       onClick={() => {
                         setEditandoId(null);
                         setNuevoNombre("");
@@ -165,6 +173,7 @@ export default function Categorias() {
                   <span className="text-sm">{cat.nombre}</span>
                   <div className="flex gap-2">
                     <button
+                      role="button"
                       onClick={() => {
                         setEditandoId(cat.id);
                         setNuevoNombre(cat.nombre);
@@ -174,6 +183,7 @@ export default function Categorias() {
                       Editar
                     </button>
                     <button
+                      role="button"
                       onClick={() => handleEliminar(cat.id)}
                       className="text-red-600 hover:underline text-sm"
                     >

@@ -144,10 +144,7 @@ export default function Perfil() {
             {/* Rol */}
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-4">
-                <label
-                  htmlFor="rol"
-                  className="block text-sm/6 font-medium text-gray-900"
-                >
+                <label className="block text-sm/6 font-medium text-gray-900">
                   Rol
                 </label>
                 <div className="mt-2">
@@ -166,6 +163,7 @@ export default function Perfil() {
             {editMode ? (
               <>
                 <button
+                  role="button"
                   type="submit"
                   onClick={handleUpdate}
                   className="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500"
@@ -173,6 +171,7 @@ export default function Perfil() {
                   Guardar cambios
                 </button>
                 <button
+                  role="button"
                   type="button"
                   onClick={() => {
                     setPassword("");
@@ -190,6 +189,7 @@ export default function Perfil() {
               </>
             ) : (
               <button
+                role="button"
                 type="button"
                 onClick={() => setEditMode(true)}
                 className="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500"

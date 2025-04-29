@@ -112,10 +112,15 @@ export default function ListadoMovimientos() {
           }
         >
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="fecha-desde"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Fecha desde
             </label>
+            "fecha-desde"
             <input
+              id="fecha-desde"
               type="date"
               value={fechaDesde}
               onChange={(e) => {
@@ -127,10 +132,14 @@ export default function ListadoMovimientos() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="fecha-hasta"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Fecha hasta
             </label>
             <input
+              id="fecha-hasta"
               type="date"
               value={fechaHasta}
               onChange={(e) => {
@@ -223,6 +232,7 @@ export default function ListadoMovimientos() {
                     <td className="px-4 py-2">{mov.lineas?.length || 0}</td>
                     <td className="px-4 py-2">
                       <button
+                        role="button"
                         onClick={() => navigate(`/movimientos/${mov.id_mov}`)}
                         className="text-indigo-600 hover:underline text-sm"
                       >

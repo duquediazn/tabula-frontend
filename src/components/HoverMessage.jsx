@@ -11,8 +11,11 @@ export default function HoverMessage({ text, icon = "ℹ️", className = "" }) 
                   opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10 ${className}`}
     >
       <div className="flex justify-between items-start">
-        <span>{icon} {text}</span>
+        <span>
+          {icon} {text}
+        </span>
         <button
+          role="button"
           onClick={() => setIsVisible(false)}
           className="ml-2 text-indigo-500 hover:text-indigo-700"
         >

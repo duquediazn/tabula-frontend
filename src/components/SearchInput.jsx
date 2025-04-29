@@ -2,11 +2,15 @@ export default function SearchInput({ label, placeholder, value, onChange }) {
   return (
     <div>
       {label && (
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label
+          htmlFor={`buscar${label}`}
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
           {label}
         </label>
       )}
       <input
+        id={`buscar${label}`}
         type="text"
         placeholder={placeholder}
         value={value}

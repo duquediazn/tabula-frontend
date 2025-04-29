@@ -20,6 +20,7 @@ export default function TablaResumenStockAlmacen({ stock, onVerHistorial }) {
               <td className="px-4 py-2">{item.cantidad}</td>
               <td className="px-4 py-2">
                 <button
+                  role="button"
                   className="text-indigo-600 hover:text-indigo-800 font-medium text-sm"
                   onClick={() => item && onVerHistorial?.("producto", item)}
                 >
@@ -36,6 +37,7 @@ export default function TablaResumenStockAlmacen({ stock, onVerHistorial }) {
             <td className="px-4 py-2">{total}</td>
             <td className="px-4 py-2">
               <button
+                role="button"
                 className="text-indigo-600 hover:text-indigo-800 text-sm font-medium"
                 onClick={() => stock[0] && onVerHistorial?.("total", stock[0])}
               >

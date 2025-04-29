@@ -58,6 +58,7 @@ export default function StockPorProducto() {
           Stock del producto {sku}
         </h1>
         <button
+          role="button"
           onClick={() => window.history.back()}
           className="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500"
         >

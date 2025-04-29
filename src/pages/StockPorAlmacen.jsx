@@ -62,6 +62,7 @@ export default function StockPorAlmacen() {
           </h1>
 
           <button
+            role="button"
             onClick={() => navigate(-1)}
             className="text-indigo-600 hover:underline text-sm"
           >

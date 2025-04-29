@@ -73,12 +73,14 @@ export default function TablaListadoProductos({
               </td>
               <td className="px-4 py-2 space-x-2">
                 <button
+                  role="button"
                   onClick={() => navigate(`/productos/${producto.codigo}`)}
                   className="text-indigo-600 hover:underline"
                 >
                   Ver producto
                 </button>
                 <button
+                  role="button"
                   onClick={() =>
                     navigate(`/productos/${producto.codigo}/stock`)
                   }
@@ -89,6 +91,7 @@ export default function TablaListadoProductos({
                 {user?.role === "admin" && (
                   <>
                     <button
+                      role="button"
                       onClick={() =>
                         navigate(`/productos/${producto.codigo}/editar`)
                       }
@@ -97,6 +100,7 @@ export default function TablaListadoProductos({
                       Editar
                     </button>
                     <button
+                      role="button"
                       onClick={() => handleEliminar(producto.codigo)}
                       className="text-red-600 hover:underline"
                     >

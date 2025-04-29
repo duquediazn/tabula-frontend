@@ -69,6 +69,7 @@ export default function DetalleMovimiento() {
           Detalle del movimiento #{movimiento.id_mov}
         </h1>
         <button
+          role="button"
           onClick={() => navigate("/movimientos/listado")}
           className="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500 mb-4"
         >

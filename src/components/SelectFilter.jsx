@@ -8,11 +8,15 @@ export default function SelectFilter({
   return (
     <div>
       {label && (
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label
+          htmlFor={`select${label}`}
+          className="block text-sm font-medium text-gray-700 mb-1"
+        >
           {label}
         </label>
       )}
       <select
+        id={`select${label}`}
         value={value}
         onChange={onChange}
         className={`h-[36px] bg-white w-full rounded border border-gray-300 px-2 py-1 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 ${className}`}

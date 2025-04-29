@@ -55,6 +55,7 @@ export default function DetalleProducto() {
             Detalle del producto
           </h1>
           <button
+            role="button"
             onClick={() => window.history.back()}
             className="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500"
           >
@@ -82,6 +83,7 @@ export default function DetalleProducto() {
           <div className="flex gap-4 pt-4">
             {user?.role === "admin" && (
               <button
+                role="button"
                 onClick={() => navigate(`/productos/${producto.codigo}/editar`)}
                 className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded text-sm"
               >

@@ -93,10 +93,14 @@ export default function EditarAlmacen() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="descripcion"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Descripción
               </label>
               <input
+                id="descripcion"
                 type="text"
                 name="descripcion"
                 value={formulario.descripcion}
@@ -109,6 +113,7 @@ export default function EditarAlmacen() {
             {user?.role === "admin" && (
               <div className="flex items-center gap-2">
                 <input
+                  id="activo"
                   type="checkbox"
                   name="activo"
                   checked={formulario.activo}

@@ -70,10 +70,14 @@ export default function NuevoUsuario() {
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Nombre */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="nombre"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Nombre
               </label>
               <input
+                id="nombre"
                 type="text"
                 name="nombre"
                 value={formulario.nombre}
@@ -85,10 +89,14 @@ export default function NuevoUsuario() {
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Email
               </label>
               <input
+                id="email"
                 type="email"
                 name="email"
                 value={formulario.email}
@@ -100,10 +108,14 @@ export default function NuevoUsuario() {
 
             {/* Contraseña */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="contraseña"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Contraseña
               </label>
               <input
+                id="contraseña"
                 type="password"
                 name="passwd"
                 value={formulario.passwd}
@@ -115,10 +127,14 @@ export default function NuevoUsuario() {
 
             {/* Rol */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="rol"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Rol
               </label>
               <select
+                id="rol"
                 name="rol"
                 value={formulario.rol}
                 onChange={handleChange}
@@ -132,6 +148,7 @@ export default function NuevoUsuario() {
             {/* Activo */}
             <div className="flex items-center gap-2">
               <input
+                id="activo"
                 type="checkbox"
                 name="activo"
                 checked={formulario.activo}
@@ -144,12 +161,14 @@ export default function NuevoUsuario() {
 
             <div className="flex gap-3">
               <button
+                role="button"
                 type="submit"
                 className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded"
               >
                 Crear usuario
               </button>
               <button
+                role="button"
                 type="button"
                 onClick={() => navigate("/usuarios")}
                 className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded"

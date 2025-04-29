@@ -23,9 +23,15 @@ export default function StockProducto() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getProductosCaducidad({ accessToken, desde, hasta, limit, offset });
+        const data = await getProductosCaducidad({
+          accessToken,
+          desde,
+          hasta,
+          limit,
+          offset,
+        });
         setStock(data.data);
-        setTotal(data.total)
+        setTotal(data.total);
       } catch (error) {
         console.error("Error:", error.message);
       }
@@ -49,6 +55,7 @@ export default function StockProducto() {
           Productos próximos a caducar
         </h1>
         <button
+          role="button"
           onClick={() => window.history.back()}
           className="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500"
         >

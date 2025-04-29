@@ -137,10 +137,14 @@ export default function EditarProducto() {
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* SKU */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="sku"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 SKU
               </label>
               <input
+                id="sku"
                 type="text"
                 name="sku"
                 value={formulario.sku}
@@ -152,10 +156,14 @@ export default function EditarProducto() {
 
             {/* Nombre corto */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="nombre-corto"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Nombre corto
               </label>
               <input
+                id="nombre-corto"
                 type="text"
                 name="nombre_corto"
                 value={formulario.nombre_corto}
@@ -167,10 +175,14 @@ export default function EditarProducto() {
 
             {/* Descripción */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="descripcion"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Descripción
               </label>
               <textarea
+                id="descripcion"
                 name="descripcion"
                 value={formulario.descripcion}
                 onChange={handleChange}
@@ -181,10 +193,14 @@ export default function EditarProducto() {
 
             {/* Categoría */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="id_categoria"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Categoría
               </label>
               <select
+                id="id_categoria"
                 name="id_categoria"
                 value={formulario.id_categoria}
                 onChange={handleChange}
@@ -211,6 +227,7 @@ export default function EditarProducto() {
             {user?.role === "admin" && (
               <div className="flex items-center gap-2">
                 <input
+                  id="activo"
                   type="checkbox"
                   name="activo"
                   checked={formulario.activo}

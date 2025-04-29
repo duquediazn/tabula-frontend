@@ -55,12 +55,14 @@ export default function TablaListadoUsuarios({
               </td>
               <td className="px-4 py-2 space-x-2">
                 <button
+                  role="button"
                   onClick={() => navigate(`/usuarios/${u.id}/editar`)}
                   className="text-indigo-600 hover:underline"
                 >
                   Editar
                 </button>
                 <button
+                  role="button"
                   onClick={() => onEliminar(u.id)}
                   className="text-red-600 hover:underline"
                 >

@@ -23,16 +23,16 @@ export default function CrearMovimiento() {
   const [lineas, setLineas] = useState([
     datosIniciales.linea
       ? {
-        ...datosIniciales.linea,
-        cantidad: datosIniciales.linea.cantidad || 1,
-      }
+          ...datosIniciales.linea,
+          cantidad: datosIniciales.linea.cantidad || 1,
+        }
       : {
-        codigo_almacen: "",
-        codigo_producto: "",
-        lote: "",
-        fecha_cad: "",
-        cantidad: 1,
-      },
+          codigo_almacen: "",
+          codigo_producto: "",
+          lote: "",
+          fecha_cad: "",
+          cantidad: 1,
+        },
   ]);
 
   useEffect(() => {
@@ -198,10 +198,14 @@ export default function CrearMovimiento() {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="w-full max-w-xs">
-            <label className="block font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="tipo-movimiento"
+              className="block font-medium text-gray-700 mb-1"
+            >
               Tipo de movimiento
             </label>
             <AsyncSelect
+              id="tipo-movimiento"
               defaultOptions={opcionesTipo}
               loadOptions={(inputValue, callback) => {
                 // Devuelve las mismas opciones siempre, sin buscar
@@ -263,11 +267,11 @@ export default function CrearMovimiento() {
                           value={
                             linea.codigo_almacen
                               ? {
-                                value: linea.codigo_almacen,
-                                label:
-                                  linea.label_almacen ||
-                                  "Almacén seleccionado",
-                              }
+                                  value: linea.codigo_almacen,
+                                  label:
+                                    linea.label_almacen ||
+                                    "Almacén seleccionado",
+                                }
                               : null
                           }
                           placeholder="Selecciona un almacén..."
@@ -301,9 +305,9 @@ export default function CrearMovimiento() {
                           value={
                             linea.codigo_producto
                               ? {
-                                value: linea.codigo_producto,
-                                label: linea.label_producto,
-                              }
+                                  value: linea.codigo_producto,
+                                  label: linea.label_producto,
+                                }
                               : null
                           }
                           placeholder="Selecciona un producto..."
@@ -323,7 +327,7 @@ export default function CrearMovimiento() {
                       {/* Lote */}
                       <td className="px-4 py-2">
                         {tipo === "salida" &&
-                          lotesDisponibles[index]?.length > 0 ? (
+                        lotesDisponibles[index]?.length > 0 ? (
                           <select
                             value={linea.lote}
                             onChange={(e) => {
@@ -359,8 +363,8 @@ export default function CrearMovimiento() {
                                 {lote.lote} ({lote.cantidad} unidades){" "}
                                 {lote.fecha_cad
                                   ? `- cad: ${new Date(
-                                    lote.fecha_cad
-                                  ).toLocaleDateString()}`
+                                      lote.fecha_cad
+                                    ).toLocaleDateString()}`
                                   : ""}
                               </option>
                             ))}
@@ -399,10 +403,11 @@ export default function CrearMovimiento() {
                                   e.target.value
                                 )
                               }
-                              className={`h-[36px] border border-gray-300 rounded px-2 py-1 w-full text-sm ${loteEnLista
-                                ? "bg-gray-100 cursor-not-allowed"
-                                : "bg-white"
-                                }`}
+                              className={`h-[36px] border border-gray-300 rounded px-2 py-1 w-full text-sm ${
+                                loteEnLista
+                                  ? "bg-gray-100 cursor-not-allowed"
+                                  : "bg-white"
+                              }`}
                             />
                           );
                         })()}
@@ -422,10 +427,11 @@ export default function CrearMovimiento() {
                               parseInt(e.target.value)
                             )
                           }
-                          className={`h-[36px] border border-gray-300 rounded px-2 py-1 w-full ${errores[`cantidad_${index}`]
-                            ? "border-red-500"
-                            : "border-gray-300"
-                            }`}
+                          className={`h-[36px] border border-gray-300 rounded px-2 py-1 w-full ${
+                            errores[`cantidad_${index}`]
+                              ? "border-red-500"
+                              : "border-gray-300"
+                          }`}
                         />
                         <div className="min-h-[1.25rem]">
                           <ErrorMessage

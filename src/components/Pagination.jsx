@@ -21,6 +21,7 @@ export default function Pagination({ total, limit, offset, onPageChange }) {
       </div>
       <div className="flex gap-2">
         <button
+          role="button"
           onClick={handlePrevious}
           disabled={offset === 0}
           className="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1 rounded disabled:opacity-50"
@@ -28,6 +29,7 @@ export default function Pagination({ total, limit, offset, onPageChange }) {
           Anterior
         </button>
         <button
+          role="button"
           onClick={handleNext}
           disabled={offset + limit >= total}
           className="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1 rounded disabled:opacity-50"

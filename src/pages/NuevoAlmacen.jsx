@@ -54,10 +54,14 @@ export default function NuevoAlmacen() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="descripcion"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Descripción
               </label>
               <input
+                id="descripcion"
                 type="text"
                 value={descripcion}
                 onChange={(e) => setDescripcion(e.target.value)}
@@ -68,6 +72,7 @@ export default function NuevoAlmacen() {
 
             <div className="flex gap-3">
               <button
+                role="button"
                 type="submit"
                 disabled={isSubmitting}
                 className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded"
@@ -75,6 +80,7 @@ export default function NuevoAlmacen() {
                 Guardar almacén
               </button>
               <button
+                role="button"
                 type="button"
                 onClick={() => navigate("/almacenes/listado")}
                 className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded"

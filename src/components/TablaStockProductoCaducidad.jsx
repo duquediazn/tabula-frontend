@@ -34,12 +34,14 @@ export default function TablaStockProducto({
               {mostrarAcciones && (
                 <td className="px-4 py-2 space-y-1">
                   <button
+                    role="button"
                     className="block text-indigo-600 hover:text-indigo-800 font-medium text-sm"
                     onClick={() => linea && onVerHistorial?.(linea)}
                   >
                     Ver historial
                   </button>
                   <button
+                    role="button"
                     className="block text-green-600 hover:text-green-800 font-medium text-sm"
                     onClick={() =>
                       navigate("/movimientos/nuevo", {

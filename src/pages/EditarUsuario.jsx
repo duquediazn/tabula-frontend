@@ -115,10 +115,14 @@ export default function EditarUsuario() {
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Nombre */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="nombre"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Nombre
               </label>
               <input
+                id="nombre"
                 type="text"
                 name="nombre"
                 value={formulario.nombre}
@@ -130,10 +134,14 @@ export default function EditarUsuario() {
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Email
               </label>
               <input
+                id="email"
                 type="email"
                 name="email"
                 value={formulario.email}
@@ -145,10 +153,14 @@ export default function EditarUsuario() {
 
             {/* Nueva contraseña */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="nueva-contraseña"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Nueva contraseña
               </label>
               <input
+                id="nueva-contraseña"
                 type="password"
                 name="password"
                 value={formulario.password}
@@ -160,10 +172,14 @@ export default function EditarUsuario() {
 
             {/* Rol */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="rol"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Rol
               </label>
               <select
+                id="rol"
                 name="rol"
                 value={formulario.rol}
                 onChange={handleChange}
@@ -175,8 +191,9 @@ export default function EditarUsuario() {
             </div>
 
             {/* Activo */}
-            <div className="flex items-center gap-2">
+            <div htmlFor="activo" className="flex items-center gap-2">
               <input
+                id="activo"
                 type="checkbox"
                 name="activo"
                 checked={formulario.activo}

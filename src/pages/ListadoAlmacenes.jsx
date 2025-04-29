@@ -79,6 +79,7 @@ export default function ListadoAlmacenes() {
           </h1>
           {user?.role === "admin" && (
             <button
+              role="button"
               onClick={() => navigate("/almacenes/nuevo")}
               className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded text-sm"
             >
@@ -132,6 +133,7 @@ export default function ListadoAlmacenes() {
         {user?.role === "admin" && seleccionados.length > 0 && (
           <div className="flex gap-2">
             <button
+              role="button"
               onClick={async () => {
                 try {
                   const res = await cambiarEstadoAlmacenes(
@@ -156,6 +158,7 @@ export default function ListadoAlmacenes() {
               Activar seleccionados
             </button>
             <button
+              role="button"
               onClick={async () => {
                 try {
                   const res = await cambiarEstadoAlmacenes(
@@ -230,6 +233,7 @@ export default function ListadoAlmacenes() {
                     </td>
                     <td className="px-4 py-2 space-x-2">
                       <button
+                        role="button"
                         onClick={() => navigate(`/almacenes/${alm.codigo}`)}
                         className="text-indigo-600 hover:underline"
                       >
@@ -238,6 +242,7 @@ export default function ListadoAlmacenes() {
                       {user?.role === "admin" && (
                         <>
                           <button
+                            role="button"
                             onClick={() =>
                               navigate(`/almacenes/${alm.codigo}/editar`)
                             }
@@ -246,6 +251,7 @@ export default function ListadoAlmacenes() {
                             Editar
                           </button>
                           <button
+                            role="button"
                             onClick={() =>
                               navigate(`/stock/almacen/${alm.codigo}`)
                             }

@@ -55,6 +55,7 @@ export default function DetalleAlmacen() {
             Detalle del almacén
           </h1>
           <button
+            role="button"
             onClick={() => navigate(`/almacenes/listado`)}
             className="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500"
           >
@@ -76,6 +77,7 @@ export default function DetalleAlmacen() {
           {user?.role === "admin" && (
             <div className="flex gap-4 pt-4">
               <button
+                role="button"
                 onClick={() => navigate(`/almacenes/${almacen.codigo}/editar`)}
                 className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded text-sm"
               >

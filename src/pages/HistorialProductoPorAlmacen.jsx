@@ -92,6 +92,7 @@ export default function HistorialProductoPorAlmacen() {
           {`Historial del producto ${sku} en almacén ${id_almacen}`}
         </h1>
         <button
+          role="button"
           onClick={() => window.history.back()}
           className="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500"
         >
