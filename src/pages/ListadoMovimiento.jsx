@@ -118,7 +118,6 @@ export default function ListadoMovimientos() {
             >
               Fecha desde
             </label>
-            "fecha-desde"
             <input
               id="fecha-desde"
               type="date"
