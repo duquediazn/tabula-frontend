@@ -1,9 +1,8 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../context/useAuth"; // custom hook useAuth, que accede al contexto de autenticación
 
-export default function PrivateRoute({ children }) {
-  //Definimos el componente PrivateRoute. Recibe children, es decir, el contenido que queremos proteger
-  const { isAuthenticated, isLoading, isLoggingOut } = useAuth(); //Extraemos de nuestro contexto el estado de autenticación del usuario actual.
+export default function PrivateRoute() {
+  const { isAuthenticated, isLoading, isLoggingOut } = useAuth();
 
   if (isLoading) return null;
 
@@ -13,5 +12,5 @@ export default function PrivateRoute({ children }) {
     // es decir, que si luego hace "atrás", no vuelve a la ruta protegida.
   }
 
-  return children; //renderizamos el contenido protegido.
+  return <Outlet />; //renderizamos el contenido protegido.
 }

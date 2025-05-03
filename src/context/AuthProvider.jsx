@@ -4,16 +4,16 @@ import { login as loginAPI, getPerfil } from "../api/auth";
 import { jwtDecode } from "jwt-decode";
 import API_URL from "../api/config";
 
-//Crear contexto
+//Crear contexto de autenticación
 export const AuthContext = createContext();
 
 //Provider
 export function AuthProvider({ children }) {
-  const [accessToken, setAccessToken] = useState(null);
-  const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [accessToken, setAccessToken] = useState(null); //el token JWT de acceso (no incluye el refresh token, que va en cookie).
+  const [user, setUser] = useState(null); //datos del usuario autenticado (nombre, email, rol…).
+  const [isLoading, setIsLoading] = useState(true); //se pone a false cuando termina de verificar si el usuario está logueado.
   const navigate = useNavigate();
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false); //permite prevenir acciones mientras se cierra sesión.
 
   //Refresco automático del token
   let refreshTimeout;
@@ -45,6 +45,7 @@ export function AuthProvider({ children }) {
   };
 
   const refreshAccessToken = async () => {
+    /*Llama al backend (/auth/refresh) que usa la cookie HttpOnly para generar un nuevo access token.*/
     try {
       const response = await fetch(`${API_URL}/auth/refresh`, {
         method: "POST",
@@ -89,7 +90,7 @@ export function AuthProvider({ children }) {
     });
 
     navigate("/dashboard");
-    localStorage.setItem("login-event", Date.now());
+    localStorage.setItem("login-event", Date.now()); //disparar evento login
   };
 
   //Logout
@@ -106,7 +107,7 @@ export function AuthProvider({ children }) {
     }
 
     // Limpieza local de sesión
-    localStorage.setItem("logout-event", Date.now());
+    localStorage.setItem("logout-event", Date.now()); //disparar evento logout
     setAccessToken(null);
     setUser(null);
     clearTimeout(refreshTimeout);
@@ -115,10 +116,15 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     refreshAccessToken();
-  }, []);
+  }, []); //se ejecuta una sola vez al cargar la app
+
+  /*Sincronización de login/logout entre pestañas:
+  Porque el AuthContext vive dentro de cada pestaña, si el usuario cierra sesión en una, 
+  las otras no "se enteran" a menos que se sincronicen manualmente.*/
 
   useEffect(() => {
     const syncLogout = (event) => {
+      //Cierra la sesión en todas las pestañas
       if (event.key === "logout-event") {
         setAccessToken(null);
         setUser(null);
@@ -135,6 +141,7 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const syncLogin = (event) => {
+      //sincroniza acceso tras login en otra pestaña
       if (event.key === "login-event") {
         refreshAccessToken(); // actualiza token y datos del usuario
       }
@@ -166,7 +173,3 @@ export function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
-
-/*
-!! forma corta de convertir cualquier valor a true o false, dependiendo de si es "truthy" o "falsy".
-*/

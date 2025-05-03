@@ -22,6 +22,6 @@ Este bloque envuelve la app con varios providers que le dan capacidades especial
 * <React.StrictMode>: Modo estricto que ayuda a detectar errores potenciales en desarrollo. Solo afecta al entorno de desarrollo.
 * <BrowserRouter>: Habilita el uso de rutas (<Route>, useNavigate, etc.) en toda la app.
 * <AuthProvider>: Crea un "contexto" de autenticación que estará disponible en toda la app. Esto permite, por ejemplo, acceder 
-al usuario actual en cualquier componente con useAuth() o algo parecido.
+al usuario actual en cualquier componente con useAuth().
 * <App />: El componente principal donde se definen las rutas (<Routes>, <Route>, etc.).
 */

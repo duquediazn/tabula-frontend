@@ -1,12 +1,13 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../context/useAuth";
 
-export default function PublicRoute({ children }) {
-    const { isAuthenticated } = useAuth();
+export default function PublicRoute() {
+  const { isAuthenticated } = useAuth();
 
-    if (isAuthenticated) {
-        return <Navigate to="/dashboard" replace />;
-    }
-
-    return children;
+  return isAuthenticated ? <Navigate to="/dashboard" replace /> : <Outlet />;
 }
+
+/*
+Outlet es el marcador de posición que le dice a React Router:
+“Aquí van las rutas hijas definidas dentro de mí”.
+*/

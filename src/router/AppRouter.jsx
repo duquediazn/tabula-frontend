@@ -43,268 +43,58 @@ export default function AppRouter() {
     <Routes>
       <Route path="/" element={<Navigate to="/login" />} />
 
-      <Route
-        path="/login"
-        element={
-          <PublicRoute>
-            <Login />
-          </PublicRoute>
-        }
-      />
+      <Route element={<PublicRoute />}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Route>
 
-      <Route
-        path="/register"
-        element={
-          <PublicRoute>
-            <Register />
-          </PublicRoute>
-        }
-      />
+      <Route element={<AdminRoute />}>
+        <Route path="/usuarios" element={<Usuarios />} />
+        <Route path="/usuarios/nuevo" element={<NuevoUsuario />} />
+        <Route path="/usuarios/:id/editar" element={<EditarUsuario />} />
+        <Route path="/productos/nuevo" element={<NuevoProducto />} />
+        <Route path="/productos/:id/editar" element={<EditarProducto />} />
+        <Route path="/almacenes/nuevo" element={<NuevoAlmacen />} />
+        <Route path="/almacenes/:codigo/editar" element={<EditarAlmacen />} />
+        <Route path="/categorias" element={<Categorias />} />
+      </Route>
 
-      <Route
-        path="/dashboard"
-        element={
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/productos"
-        element={
-          <PrivateRoute>
-            <Productos />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/movimientos"
-        element={
-          <PrivateRoute>
-            <Movimientos />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/almacenes"
-        element={
-          <PrivateRoute>
-            <Almacenes />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/usuarios"
-        element={
-          <AdminRoute>
-            <Usuarios />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path="/usuarios/nuevo"
-        element={
-          <AdminRoute>
-            <NuevoUsuario />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path="/usuarios/:id/editar"
-        element={
-          <AdminRoute>
-            <EditarUsuario />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path="/perfil"
-        element={
-          <PrivateRoute>
-            <Perfil />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/caducidad"
-        element={
-          <PrivateRoute>
-            <StockProductoCaducidad />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/movimientos/nuevo"
-        element={
-          <PrivateRoute>
-            <CrearMovimiento />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/movimientos/listado"
-        element={
-          <PrivateRoute>
-            <ListadoMovimientos />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/movimientos/:id"
-        element={
-          <PrivateRoute>
-            <DetalleMovimiento />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/productos/listado"
-        element={
-          <PrivateRoute>
-            <ListadoProductos />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/productos/:id"
-        element={
-          <PrivateRoute>
-            <DetalleProducto />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/productos/nuevo"
-        element={
-          <AdminRoute>
-            <NuevoProducto />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path="/productos/:id/editar"
-        element={
-          <AdminRoute>
-            <EditarProducto />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path="/productos/:id/stock"
-        element={
-          <PrivateRoute>
-            <StockPorProducto />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/productos/:id/historial"
-        element={
-          <PrivateRoute>
-            <HistorialProducto />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/stock/almacen/:id_almacen/productos/:id_producto/historial"
-        element={
-          <PrivateRoute>
-            <HistorialProductoPorAlmacen />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/categorias"
-        element={
-          <AdminRoute>
-            <Categorias />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path="/almacenes/listado"
-        element={
-          <PrivateRoute>
-            <ListadoAlmacenes />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/almacenes/nuevo"
-        element={
-          <AdminRoute>
-            <NuevoAlmacen />
-          </AdminRoute>
-        }
-      />
-
-      <Route
-        path="/almacenes/:codigo"
-        element={
-          <PrivateRoute>
-            <DetalleAlmacen />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/almacenes/:codigo/editar"
-        element={
-          <PrivateRoute>
-            <EditarAlmacen />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/stock/almacen/:codigo_almacen/producto/:codigo_producto"
-        element={
-          <PrivateRoute>
-            <StockProductoPorAlmacen />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/stock/almacen/:codigo_almacen"
-        element={
-          <PrivateRoute>
-            <StockPorAlmacen />
-          </PrivateRoute>
-        }
-      />
-
-      <Route
-        path="/stock/almacen/:codigo_almacen/historial"
-        element={
-          <PrivateRoute>
-            <HistorialStockAlmacen />
-          </PrivateRoute>
-        }
-      />
+      <Route element={<PrivateRoute />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/productos" element={<Productos />} />
+        <Route path="/movimientos" element={<Movimientos />} />
+        <Route path="/almacenes" element={<Almacenes />} />
+        <Route path="/perfil" element={<Perfil />} />
+        <Route path="/caducidad" element={<StockProductoCaducidad />} />
+        <Route path="/movimientos/nuevo" element={<CrearMovimiento />} />
+        <Route path="/movimientos/listado" element={<ListadoMovimientos />} />
+        <Route path="/movimientos/:id" element={<DetalleMovimiento />} />
+        <Route path="/productos/listado" element={<ListadoProductos />} />
+        <Route path="/productos/:id" element={<DetalleProducto />} />
+        <Route path="/productos/:id/stock" element={<StockPorProducto />} />
+        <Route
+          path="/productos/:id/historial"
+          element={<HistorialProducto />}
+        />
+        <Route
+          path="/stock/almacen/:id_almacen/productos/:id_producto/historial"
+          element={<HistorialProductoPorAlmacen />}
+        />
+        <Route path="/almacenes/listado" element={<ListadoAlmacenes />} />
+        <Route path="/almacenes/:codigo" element={<DetalleAlmacen />} />
+        <Route
+          path="/stock/almacen/:codigo_almacen/producto/:codigo_producto"
+          element={<StockProductoPorAlmacen />}
+        />
+        <Route
+          path="/stock/almacen/:codigo_almacen"
+          element={<StockPorAlmacen />}
+        />
+        <Route
+          path="/stock/almacen/:codigo_almacen/historial"
+          element={<HistorialStockAlmacen />}
+        />
+      </Route>
     </Routes>
   );
 }
-
-// <PrivateRoute>: Es un wrapper para envolver los componentes que solo deberían verse si el usuario está autenticado.

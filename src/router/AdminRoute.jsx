@@ -1,16 +1,15 @@
+import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../context/useAuth";
-import { Navigate } from "react-router-dom";
 
-export default function AdminRoute({ children }) {
+export default function AdminRoute() {
   const { user, isLoading, isLoggingOut } = useAuth();
 
   if (isLoading) return null;
 
-  // No alertamos si estamos cerrando sesión
-  if (!isLoggingOut && (!user || user.role !== "admin")) {
-    alert("Acceso denegado. Solo los administradores pueden acceder.");
+  if (user?.role !== "admin" && !isLoggingOut) {
+    alert("Acceso denegado. No tienes permisos para acceder a esta página.");
     return <Navigate to="/dashboard" replace />;
   }
 
-  return children;
+  return <Outlet />;
 }
