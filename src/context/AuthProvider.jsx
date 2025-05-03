@@ -40,10 +40,7 @@ export function AuthProvider({ children }) {
     const refreshTime = expiresInMs - 5 * 60 * 1000; // 5 minutos antes
     if (refreshTime > 0) {
       refreshTimeout = setTimeout(refreshAccessToken, refreshTime);
-    } else {
-      refreshAccessToken()
     }
-
   };
 
   const refreshAccessToken = async () => {
