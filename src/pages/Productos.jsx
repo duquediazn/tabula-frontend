@@ -130,7 +130,7 @@ export default function Productos() {
                               key={index}
                               fill={
                                 coloresCategorias[
-                                  index % coloresCategorias.length
+                                index % coloresCategorias.length
                                 ]
                               }
                             />
@@ -180,7 +180,7 @@ export default function Productos() {
                                 key={index}
                                 fill={
                                   coloresProductos[
-                                    index % coloresProductos.length
+                                  index % coloresProductos.length
                                   ]
                                 }
                               />

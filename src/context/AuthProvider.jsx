@@ -36,12 +36,14 @@ export function AuthProvider({ children }) {
 
   const scheduleTokenRefresh = (token) => {
     clearTimeout(refreshTimeout); // Limpiamos si había uno pendiente
-    const expiresInMs = getTokenExpiration(token) - Date.now();
+    const expiresInMs = getTokenExpiration(token);
     const refreshTime = expiresInMs - 5 * 60 * 1000; // 5 minutos antes
-
     if (refreshTime > 0) {
       refreshTimeout = setTimeout(refreshAccessToken, refreshTime);
+    } else {
+      refreshAccessToken()
     }
+
   };
 
   const refreshAccessToken = async () => {
